@@ -11,6 +11,9 @@ But that will take `O(n^2)` time.
 
 We can see from the above image that, if we **sort** the intervals then we can **only compare with the previous interval**!
 
+## Merging intervals:
+Every time I find the current interval overlaps with the previous interval, then extend the interval with `x(i-1), max[y(i-1), yi]`
+
 # Time complexity:
 Time to sort the intervals: `O(nlogn)`, (n = number of intervals)
 
