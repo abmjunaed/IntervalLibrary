@@ -8,12 +8,15 @@ import java.util.List;
 
 public class IntervalOperation {
     /**
-     * This function doesn't return {{@code null}}; it returns empty list if the input is empty or {{@code null}}.
-     * This function merges the overlapping intervals and returns the disjoint intervals.
+     * Merges the overlapping intervals and returns the disjoint intervals.
+     * <p>
      * e.g, for the input  [[25,30], [2,19], [14, 23], [4,8]], it returns [[2,23], [25,30]]
-     *
-     * Algorithm: sort the intervals based on the first value. Then check the overlapping by comparing the start of an interval with the previous interval's end.
+     * <p>
+     * <b>Algorithm:</b> sort the intervals based on the first value. Then check the overlapping by comparing the start of an interval with the previous interval's end.
      * Increase the end of an interval by taking the bigger of the end of the two overlapping intervals.
+     *
+     * @return A list containing the merged intervals.
+     * This function doesn't return null; it returns empty list if the input is empty or  null
      */
     public List<Interval> mergeOverlappedIntervals(List<Interval> intervals) {
 
@@ -27,7 +30,7 @@ public class IntervalOperation {
         int end = intervals.get(0).getEnd();
 
         for (int i = 1; i < intervals.size(); i++) {
-            Interval currentInterval=intervals.get(i);
+            Interval currentInterval = intervals.get(i);
 
             if (currentInterval.getStart() > end) { //outside the last interval
                 result.add(new Interval(start, end)); //found the previous disjoint set
